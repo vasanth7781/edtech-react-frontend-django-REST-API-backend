@@ -1,0 +1,100 @@
+
+
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+.home-section{
+  margin: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.home-insideSection{
+  display: flex;
+  flex-flow: row;
+}
+::-webkit-scrollbar{
+  width: 8px;
+    background: #a4a2a2c9
+}
+::-webkit-scrollbar-track{
+  border-radius: 50px;
+}
+div#subname:hover{
+  background:#00279526;
+  border-radius: 15px;
+}
+::-webkit-scrollbar:hover{
+  background: #09090973;
+}
+::-webkit-scrollbar-thumb{
+  background: #5a5959d1;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #393838;
+}
+.footer-item-link{
+  color: white;
+}
+.footer-item-link:hover{
+  color: white;
+  text-decoration-color: #ff7400;
+}
+.h1-404{
+  font-size: 2rem;
+  font-weight: 800;
+}
+@media (min-width: 576px){
+.h1-404{
+  font-size: 15rem;
+  font-weight: 800;
+}
+/* h1{
+  font-size: 1rem;
+}
+p{
+  font-size: 0.75rem;
+}
+div{font-size: 1rem;} */
+.card-deck1 .card  {
+    display: flex;
+    /* flex: 1 0; */
+    flex-direction: column;
+    margin-right: 15px;
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+.card-deck1 {
+  flex-flow: row wrap;
+  display: flex;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.hover:hover{
+  opacity: 0.7;
+}
+.VideosTab:hover{
+  background-color: #282c34, 
+}
+}
