@@ -10,7 +10,6 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
 
-var aesjs = require('aes-js');
 
 
 class NavBar extends Component{
@@ -20,7 +19,6 @@ class NavBar extends Component{
             isLogged:false,   
             navbarShadow:' ' ,
             mobView: false
-            // data
         })
         this.handleSuccesLogin = this.handleSuccesLogin.bind(this)
         this.handleAlreadyLogged = this.handleAlreadyLogged.bind(this)
