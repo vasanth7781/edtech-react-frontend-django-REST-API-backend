@@ -48,7 +48,6 @@ class NavBar extends Component{
     }
 
     handleScroll(event){
-        // console.log(window.pageYOffset)
         if (window.pageYOffset > 30){
             this.setState({
                 navbarShadow : 'rgba(0, 0, 0, 0.2) 0px 4px 8px 0px, rgba(0, 0, 0, 0.29) 0px 6px 20px 0px'
@@ -136,11 +135,6 @@ class NavBar extends Component{
                 } 
     <Route path='/auth/signup' exact strict render ={
                         props=>(  <SignUp {...props}  />)
-                        // ()=>{
-                        //     return(
-                        //         <h1>SignUp</h1>
-                        //     )
-                        // }
                     }    
                     />     
     <Route path='/aboutus/' exact strict render = {
