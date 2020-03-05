@@ -18,32 +18,15 @@ class DashboardMain extends React.Component{
         this.getCookie()
 
     }
-// checking token for authentication
-    getCookie(name) {
-        if (!document.cookie) {
-          return null;
-        }
-        const token = document.cookie.split(';')
-          .map(c => c.trim())
-          .filter(c => c.startsWith(name + '='));
-    
-        if (token.length === 0) {
-          return null;
-        }
-        return decodeURIComponent(token[0].split('=')[1]);
-        
-      }
+
 // fetching user profile details from api
     fetchUserProfile = () =>{
-        const csrftoken = this.getCookie('csrftoken')
         const url = 'http://192.168.0.107:8000/api/users/profile/'
         fetch((url),{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
-                'X-CSRFTOKEN': csrftoken,
             },
-            credentials: 'include',
             body:JSON.stringify({
                 user:2,
             })
@@ -109,15 +92,6 @@ class DashboardMain extends React.Component{
                         return null
                     }
                     else if(key === "user" ){
-                        return null
-                    }
-                    else if(key === "fun_completed_in_percent" ){
-                        return null
-                    }
-                    else if(key === "comedy_completed_in_percent" ){
-                        return null
-                    }
-                    else if(key === "informative_completed_in_percent" ){
                         return null
                     }
                     else{
