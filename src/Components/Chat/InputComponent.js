@@ -9,10 +9,8 @@ class InputComponent extends React.Component{
         })
         this.changeHandler = this.changeHandler.bind(this)
         this.send = this.send.bind(this)
-        this.handleCick = this.handleCick.bind(this)
 
     }
-
     changeHandler (e){
         this.setState({ [e.target.name]:e.target.value})
     }
@@ -23,8 +21,6 @@ class InputComponent extends React.Component{
           sentMessage:''
       });
       this.props.sendMessage(this.state.sentMessage)
-  }
-  handleCick(){
   }
     render(){
         return(
