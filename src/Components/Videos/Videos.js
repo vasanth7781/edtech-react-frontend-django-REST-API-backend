@@ -17,10 +17,6 @@ class Videos extends React.Component{
         this.videoPlayer = this.videoPlayer.bind(this)
     }
     componentDidMount() {
-        // this.socket = io("http://192.168.43.22:3000");      
-        // this.props.socket.emit("online",2)
-        // window.onpopstate =(event)=>{
-        // }
         this.fetchVideosApi();
     }
 
@@ -67,7 +63,7 @@ class Videos extends React.Component{
         result = rows.filter(function(item, pos, self) {
             return self.indexOf(item) === pos;
         })
-        const visdsd = result && result.map((result,index)=>{
+        const videoList = result && result.map((result,index)=>{
             return(
                 <div key = {index}>
                     <VideosList key={index} {...this.props} Category = {result} videosCategory={videos} videoPlayer={this.videoPlayer}/>
@@ -79,7 +75,7 @@ class Videos extends React.Component{
             {this.state.isOpened === false?
             <div style={{margin:5,paddingTop:30}}>
                 <h1>
-                    {visdsd}
+                    {videoList}
                 </h1>
             </div>
             :
