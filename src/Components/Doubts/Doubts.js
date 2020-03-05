@@ -111,10 +111,7 @@ class Doubts extends React.Component{
 // when send is clicked message is sent and also POST request is made using API
     send(_msg){
         var form = new FormData();
-        form.append('user',localStorage.getItem('userName'))
-        form.append('message',_msg)
-        form.append('topic',this.props.match.params.name)
-        const url = 'http://192.168.0.107:8000/chat/api/video/doubt/'+this.props.VideoName+'/'
+        const url = 'http://192.168.0.107:8000/chat/api/video/doubt/'+this.props.match.params.name+'/'
         fetch ((url),{
             method:'PUT',  
             headers:{
@@ -136,7 +133,6 @@ class Doubts extends React.Component{
 
     render(){
         const message = this.state.reverse_msg == false ? this.state.DoubtsMessage.reverse() :this.state.DoubtsMessage
-        // const message =  this.state.DoubtsMessage.reverse()
         const Message = message && message.map(
             message=><MessageList  key={message.id} friends_id = {this.state._frind_id} messageList = {message} reverse_msg = {this.state.reverse_msg}/>
         )  
