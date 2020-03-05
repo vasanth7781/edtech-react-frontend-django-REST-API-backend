@@ -15,7 +15,6 @@ class DashboardMain extends React.Component{
     componentDidMount(){
         this.fetchUserTopicData()
         this.fetchUserProfile()
-        this.getCookie()
 
     }
 
