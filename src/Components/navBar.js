@@ -31,18 +31,9 @@ class NavBar extends Component{
         }else{
         this.handleSuccesLogin(false)
         }
-        this.getCookie()
         window.addEventListener('scroll',this.handleScroll)
         window.addEventListener('resize',this.handleScreenSize.bind(this))
-        if(window.innerWidth < 790){
-            this.setState({
-                mobView:true
-            })
-        }else{
-            this.setState({
-                mobView:false
-            })
-        }
+        this.handleScreenSIze()
     }
     handleScreenSize(){
         if(window.innerWidth < 790){
@@ -72,7 +63,6 @@ class NavBar extends Component{
     
      
     handleSuccesLogin(data ){
-        // console.log(data)
      if( localStorage.getItem('userToken') != null){
         this.setState({
             isLogged:data
@@ -92,7 +82,6 @@ class NavBar extends Component{
         })
     }
     render() {
-        // console.log(csrftoken)
         return (
   <Router>
 
