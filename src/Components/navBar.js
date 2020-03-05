@@ -4,7 +4,6 @@ import {Route} from 'react-router-dom';
 import Login from './login';
 import SignUp from './SignUp';
 import Dashoard from './DashBoard/Dashboard'
-// import AfterLoginHome from './afterLoginHome'
 import NotFoundPage from './NotFound';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -18,7 +17,6 @@ class NavBar extends Component{
     constructor(props){
         super(props)
         this.state=({
-            loggedInStatus:"Not_logged_In",
             isLogged:false,   
             navbarShadow:' ' ,
             mobView: false
@@ -73,19 +71,6 @@ class NavBar extends Component{
             })
         }
     }
-    getCookie(name) {
-        if (!document.cookie) {
-          return null;
-        }
-        const token = document.cookie.split(';')
-          .map(c => c.trim())
-          .filter(c => c.startsWith(name + '='));
-    
-        if (token.length === 0) {
-          return null;
-        }
-        return decodeURIComponent(token[0].split('=')[1]);
-      }
     
      
     handleSuccesLogin(data ){
@@ -109,7 +94,6 @@ class NavBar extends Component{
         })
     }
     render() {
-        const csrftoken = this.getCookie('csrftoken')
         // console.log(csrftoken)
         return (
   <Router>
@@ -148,7 +132,7 @@ class NavBar extends Component{
                     }    
                     />
     <Route path='/login/' exact strict render ={
-                        props=>(  <Login {...props} csrftoken = {csrftoken } loggedInStatus= {this.state.loggedInStatus} handleSuccesLogin = {this.handleSuccesLogin}  />)
+                        props=>(  <Login {...props} handleSuccesLogin = {this.handleSuccesLogin}  />)
                         
                     }    
                     />
@@ -156,7 +140,7 @@ class NavBar extends Component{
     {this.state.isLogged == true?
      <Route path='/user/'  render ={
                         props=>(
-                               <Dashoard {...props} loggedInStatus = {this.state.isLogged} handleSuccesLogin ={this.handleAlreadyLogged}/>
+                               <Dashoard {...props} handleSuccesLogin ={this.handleAlreadyLogged}/>
                             )
                     }    
                     /> 
