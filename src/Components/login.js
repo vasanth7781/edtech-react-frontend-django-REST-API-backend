@@ -1,8 +1,4 @@
 import React,{Component} from 'react';
-// import { Route, Switch, Redirect } from 'react-router-dom';
-// import {BrowserRouter as Router,Link,Redirect} from 'react-router-dom';
-// import Route from 'react-router-dom/Route';
-
 
 var aesjs = require('aes-js');
 
@@ -10,15 +6,12 @@ var aesjs = require('aes-js');
 class Login extends Component{
     constructor(props){
         super(props);
-        // this.props.history.goBack("/user/dashbard")
+        this.state={
+            username:'',
+            password:'',
+            isLogged:false,
 
-    
-    this.state={
-        username:'',
-        password:'',
-        isLogged:false,
-
-    }};
+        }};
     componentDidMount (){
         if (localStorage.getItem('userToken') != null){
             this.props.history.push('/')
@@ -29,15 +22,12 @@ class Login extends Component{
         this.setState({ [e.target.name]:e.target.value})
     }
     login = e =>{
-        // console.log(e)
         fetch(('http://192.168.0.107:8000/api/users/login'),{
             method:'POST',  
             headers:{
                 'Content-Type':'application/json',
                 'Accept':'application/json',
-
             },
-            // credentials: 'include',
             body:JSON.stringify(
                 this.state)
             
@@ -46,7 +36,6 @@ class Login extends Component{
         )        
         .then((res) => {   
             if((res.token != null) && (res.username === this.state.username) ){
-                // console.log(this.state.username)
             this.setState({
                 isLogged:true   
             })
@@ -55,7 +44,6 @@ class Login extends Component{
                  isLogged:false
              })
          }
-            // console.log(this.state.isLogged)
             this.props.handleSuccesLogin(this.state.isLogged)
             var key = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ];
 
@@ -65,17 +53,7 @@ class Login extends Component{
             var encryptedBytes = aesCtr.encrypt(textBytes);
             var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
             console.log(encryptedHex);  
-            // console.log(res.token)
             var encryptedBytes = aesjs.utils.hex.toBytes(encryptedHex);
-
-            // The counter mode of operation maintains internal state, so to
-            // decrypt a new instance must be instantiated.
-            var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
-            var decryptedBytes = aesCtr.decrypt(encryptedBytes);
-
-            // Convert our bytes back into text
-            var decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
-            console.log(decryptedText);
             
             localStorage.setItem('userId',res.id)
             localStorage.setItem('userName',res.username)   
@@ -86,9 +64,6 @@ class Login extends Component{
             }else{
                 this.props.history.push("/auth/Login")
             }
-//             this.props.handleSuccesLogin(true)
-            // window.location.href="/user/dashboard"
-            // this.props.history.goBack("/user/dashboard")
         })
         e.preventDefault()
         
